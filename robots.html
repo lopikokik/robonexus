@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Виды роботов — RoboNexus</title>
+<meta name="description" content="Какие роботы существуют сегодня: гуманоиды, квадропеды, манипуляторы, дроны, роверы и медицинские системы." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="nav" id="nav">
+    <div class="nav__logo">
+      <span class="nav__logo-bracket">[</span>ROBO<span class="nav__logo-accent">NEXUS</span><span class="nav__logo-bracket">]</span>
+    </div>
+    <ul class="nav__links">
+      <li><a href="index.html#features" class="nav__link">Возможности</a></li>
+      <li><a href="index.html#viz" class="nav__link">Визуализация</a></li>
+      <li><a href="index.html#stack" class="nav__link">Технологии</a></li>
+      <li><a href="robots.html" class="nav__link">Роботы</a></li>
+      <li><a href="about.html" class="nav__link">О нас</a></li>
+      <li><a href="index.html#contact" class="nav__link">Контакт</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+<section class="features" style="padding-top:8rem;">
+  <div class="section-header">
+    <span class="section-tag">// 04 — КАТАЛОГ</span>
+    <h1 class="section-title">Какие роботы<br/><em>существуют сегодня</em></h1>
+  </div>
+  <div class="features__grid">
+    <article class="card" tabindex="0">
+      <div style="position:relative;margin-bottom:1.25rem;border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,0.03);">
+        <img src="assets/robot-humanoid.jpg" alt="Гуманоиды" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05);" />
+      </div>
+      <div class="card__num">01</div>
+      <h3 class="card__title">Гуманоиды</h3>
+      <p class="card__desc">Двуногие роботы, повторяющие анатомию человека. Используются в исследованиях, спасательных операциях и для работы в среде, спроектированной под людей.</p>
+      <div class="card__bar"><span></span></div>
+      <ul class="card__tags"><li>Atlas</li><li>Optimus</li><li>Figure 01</li></ul>
+    </article>
+    <article class="card" tabindex="0">
+      <div style="position:relative;margin-bottom:1.25rem;border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,0.03);">
+        <img src="assets/robot-quadruped.jpg" alt="Четвероногие" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05);" />
+      </div>
+      <div class="card__num">02</div>
+      <h3 class="card__title">Четвероногие</h3>
+      <p class="card__desc">Подвижные платформы для разведки, патрулирования и инспекции промышленных объектов. Преодолевают лестницы, неровный рельеф и узкие проходы.</p>
+      <div class="card__bar"><span></span></div>
+      <ul class="card__tags"><li>Spot</li><li>ANYmal</li><li>Unitree</li></ul>
+    </article>
+    <article class="card" tabindex="0">
+      <div style="position:relative;margin-bottom:1.25rem;border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,0.03);">
+        <img src="assets/robot-arm.jpg" alt="Промышленные манипуляторы" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05);" />
+      </div>
+      <div class="card__num">03</div>
+      <h3 class="card__title">Промышленные манипуляторы</h3>
+      <p class="card__desc">Шести- и семиосевые руки, выполняющие сварку, сборку, упаковку и точную манипуляцию. Основа автоматизации современных фабрик.</p>
+      <div class="card__bar"><span></span></div>
+      <ul class="card__tags"><li>KUKA</li><li>ABB</li><li>Fanuc</li></ul>
+    </article>
+    <article class="card" tabindex="0">
+      <div style="position:relative;margin-bottom:1.25rem;border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,0.03);">
+        <img src="assets/robot-drone.jpg" alt="Беспилотники" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05);" />
+      </div>
+      <div class="card__num">04</div>
+      <h3 class="card__title">Беспилотники</h3>
+      <p class="card__desc">Воздушные роботы для аэросъёмки, доставки и мониторинга. Автономная навигация, обход препятствий и роевое поведение.</p>
+      <div class="card__bar"><span></span></div>
+      <ul class="card__tags"><li>DJI</li><li>Skydio</li><li>Wing</li></ul>
+    </article>
+    <article class="card" tabindex="0">
+      <div style="position:relative;margin-bottom:1.25rem;border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,0.03);">
+        <img src="assets/robot-rover.jpg" alt="Роверы и AGV" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05);" />
+      </div>
+      <div class="card__num">05</div>
+      <h3 class="card__title">Роверы и AGV</h3>
+      <p class="card__desc">Колёсные и гусеничные платформы — от складских AGV до планетоходов. Автономно ориентируются в пространстве и перевозят грузы.</p>
+      <div class="card__bar"><span></span></div>
+      <ul class="card__tags"><li>Perseverance</li><li>AMR</li><li>Logistics</li></ul>
+    </article>
+    <article class="card" tabindex="0">
+      <div style="position:relative;margin-bottom:1.25rem;border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,0.03);">
+        <img src="assets/robot-medical.jpg" alt="Медицинские роботы" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05);" />
+      </div>
+      <div class="card__num">06</div>
+      <h3 class="card__title">Медицинские роботы</h3>
+      <p class="card__desc">Хирургические системы с миллиметровой точностью, реабилитационные экзоскелеты и роботы-ассистенты в клиниках и лабораториях.</p>
+      <div class="card__bar"><span></span></div>
+      <ul class="card__tags"><li>da Vinci</li><li>CyberKnife</li><li>Exo</li></ul>
+    </article>
+  </div>
+</section>
+<footer class="footer" id="contact">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">[ROBO<span>NEXUS</span>]</div>
+        <p class="footer__desc">Открытая платформа для исследователей, инженеров и энтузиастов робототехники.</p>
+      </div>
+      <div class="footer__col">
+        <h5 class="footer__col-title">Разделы</h5>
+        <ul class="footer__links">
+          <li><a href="index.html#features">Возможности</a></li>
+          <li><a href="index.html#viz">Симуляция</a></li>
+          <li><a href="index.html#stack">Технологии</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5 class="footer__col-title">Сообщество</h5>
+        <ul class="footer__links">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Документация</a></li>
+          <li><a href="#">Discord</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5 class="footer__col-title">Контакты</h5>
+        <ul class="footer__links">
+          <li><a href="mailto:hello@robonexus.io">hello@robonexus.io</a></li>
+          <li><a href="#">Telegram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 RoboNexus — Все права защищены</span>
+      <span class="footer__status"><span class="footer__status-dot"></span>Системы в норме</span>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

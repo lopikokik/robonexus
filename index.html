@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RoboNexus — Мир современной робототехники</title>
+<meta name="description" content="Открытая платформа робототехники: проектирование, ИИ, симуляция." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░ NAV ░░ -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <span class="nav__logo-bracket">[</span>ROBO<span class="nav__logo-accent">NEXUS</span><span class="nav__logo-bracket">]</span>
+    </div>
+    <ul class="nav__links">
+      <li><a href="#features" class="nav__link">Возможности</a></li>
+      <li><a href="#viz" class="nav__link">Визуализация</a></li>
+      <li><a href="#stack" class="nav__link">Технологии</a></li>
+      <li><a href="robots.html" class="nav__link">Роботы</a></li>
+      <li><a href="about.html" class="nav__link">О нас</a></li>
+      <li><a href="#contact" class="nav__link">Контакт</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <section class="hero" id="home">
+    <div class="hero__grid-bg"></div>
+    <div class="hero__scanline"></div>
+
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <span class="hero__tag">// СИСТЕМА АКТИВИРОВАНА</span>
+        <span class="hero__dot"></span>
+        <span class="hero__tag">v4.7.2</span>
+      </div>
+      <h1 class="hero__title">
+        <span class="hero__title-line">МИР</span>
+        <span class="hero__title-line hero__title-line--accent">СОВРЕМЕННОЙ</span>
+        <span class="hero__title-line">РОБОТО<span class="hero__title-thin">ТЕХНИКИ</span></span>
+      </h1>
+      <p class="hero__sub">
+        От концепции и CAD-проектирования — до автономного интеллекта.<br/>
+        <span id="typed-text" class="hero__typed"></span><span class="hero__cursor">▌</span>
+      </p>
+      <div class="hero__actions">
+        <a href="#features" class="btn btn--primary">
+          <span class="btn__inner">Исследовать систему</span>
+          <span class="btn__glow"></span>
+        </a>
+        <a href="#viz" class="btn btn--ghost">Запустить симуляцию →</a>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__ring hero__ring--1"></div>
+      <div class="hero__ring hero__ring--2"></div>
+      <div class="hero__ring hero__ring--3"></div>
+      <div class="hero__core">
+        <div class="hero__core-inner">
+          <svg class="hero__icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="18" stroke="var(--c-accent)" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <circle cx="40" cy="40" r="8" fill="var(--c-accent)" opacity="0.15"/>
+            <circle cx="40" cy="40" r="4" fill="var(--c-accent)"/>
+            <line x1="40" y1="5"  x2="40" y2="22" stroke="var(--c-accent)" stroke-width="1.5"/>
+            <line x1="40" y1="58" x2="40" y2="75" stroke="var(--c-accent)" stroke-width="1.5"/>
+            <line x1="5"  y1="40" x2="22" y2="40" stroke="var(--c-accent)" stroke-width="1.5"/>
+            <line x1="58" y1="40" x2="75" y2="40" stroke="var(--c-accent)" stroke-width="1.5"/>
+            <circle cx="40" cy="5"  r="2.5" fill="var(--c-accent2)"/>
+            <circle cx="40" cy="75" r="2.5" fill="var(--c-accent2)"/>
+            <circle cx="5"  cy="40" r="2.5" fill="var(--c-accent2)"/>
+            <circle cx="75" cy="40" r="2.5" fill="var(--c-accent2)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="hero__particles" id="particles"></div>
+    </div>
+
+    <div class="hero__scroll-hint">
+      <span>SCROLL</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ░░ FEATURES ░░ -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <span class="section-tag">// 01 — ВОЗМОЖНОСТИ</span>
+      <h2 class="section-title">Полный цикл<br/><em>разработки</em></h2>
+    </div>
+    <div class="features__grid">
+
+      <article class="card card--design" tabindex="0">
+        <div class="card__num">01</div>
+        <div class="card__icon">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M16 24h16M24 16v16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="24" r="3" fill="currentColor" opacity=".4"/></svg>
+        </div>
+        <h3 class="card__title">Проектирование</h3>
+        <p class="card__desc">CAD-модели, кинематические схемы, расчёт допустимых нагрузок и прототипирование — всё в одном цикле.</p>
+        <div class="card__bar"><span></span></div>
+        <ul class="card__tags"><li>SolidWorks</li><li>Fusion 360</li><li>FEM</li></ul>
+      </article>
+
+      <article class="card card--code" tabindex="0">
+        <div class="card__num">02</div>
+        <div class="card__icon">
+          <svg viewBox="0 0 48 48" fill="none"><polyline points="14,18 8,24 14,30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="34,18 40,24 34,30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="28" y1="14" x2="20" y2="34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="card__title">Программирование</h3>
+        <p class="card__desc">Прошивка микроконтроллеров, алгоритмы управления, ROS 2 и межсистемные протоколы обмена данными.</p>
+        <div class="card__bar"><span></span></div>
+        <ul class="card__tags"><li>ROS 2</li><li>C++</li><li>Python</li></ul>
+      </article>
+
+      <article class="card card--viz" tabindex="0">
+        <div class="card__num">03</div>
+        <div class="card__icon">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="14" width="28" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M18 34v4M30 34v4M14 38h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M18 24l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="card__title">3D-визуализация</h3>
+        <p class="card__desc">Фотореалистичный рендер, AR/VR-демонстрации, анимация механизмов до первой физической сборки.</p>
+        <div class="card__bar"><span></span></div>
+        <ul class="card__tags"><li>Blender</li><li>Three.js</li><li>Unreal</li></ul>
+      </article>
+
+      <article class="card card--ai" tabindex="0">
+        <div class="card__num">04</div>
+        <div class="card__icon">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="14" r="3" fill="currentColor" opacity=".5"/><circle cx="24" cy="34" r="3" fill="currentColor" opacity=".5"/><circle cx="14" cy="24" r="3" fill="currentColor" opacity=".5"/><circle cx="34" cy="24" r="3" fill="currentColor" opacity=".5"/><path d="M17.5 17.5l13 13M30.5 17.5l-13 13" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity=".4"/></svg>
+        </div>
+        <h3 class="card__title">Искусственный интеллект</h3>
+        <p class="card__desc">Компьютерное зрение, обучение с подкреплением, адаптивное планирование задач и нейросетевое управление.</p>
+        <div class="card__bar"><span></span></div>
+        <ul class="card__tags"><li>TensorFlow</li><li>PyTorch</li><li>OpenCV</li></ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ░░ INTERACTIVE VISUALIZATION ░░ -->
+  <section class="viz" id="viz">
+    <div class="section-header">
+      <span class="section-tag">// 02 — СИМУЛЯЦИЯ</span>
+      <h2 class="section-title">Манипулятор<br/><em>в реальном времени</em></h2>
+    </div>
+
+    <div class="viz__wrapper">
+      <div class="viz__panel viz__panel--left">
+        <div class="viz__stat" id="stat-angle">
+          <span class="viz__stat-label">УГОЛ J1</span>
+          <span class="viz__stat-value" id="val-angle">045°</span>
+        </div>
+        <div class="viz__stat">
+          <span class="viz__stat-label">СКОРОСТЬ</span>
+          <span class="viz__stat-value" id="val-speed">1.2 м/с</span>
+        </div>
+        <div class="viz__stat">
+          <span class="viz__stat-label">НАГРУЗКА</span>
+          <span class="viz__stat-value">3.4 кг</span>
+        </div>
+        <div class="viz__stat">
+          <span class="viz__stat-label">СТАТУС</span>
+          <span class="viz__stat-value viz__stat-value--ok" id="val-status">ACTIVE</span>
+        </div>
+        <div class="viz__controls">
+          <button class="viz__btn" id="btn-play">▶ СТАРТ</button>
+          <button class="viz__btn viz__btn--ghost" id="btn-stop">⏹ СТОП</button>
+        </div>
+      </div>
+
+      <div class="viz__scene" id="viz-scene">
+        <canvas id="robotCanvas" width="520" height="420"></canvas>
+        <div class="viz__scan-beam" id="scanBeam"></div>
+        <div class="viz__corner viz__corner--tl"></div>
+        <div class="viz__corner viz__corner--tr"></div>
+        <div class="viz__corner viz__corner--bl"></div>
+        <div class="viz__corner viz__corner--br"></div>
+      </div>
+
+      <div class="viz__panel viz__panel--right">
+        <div class="viz__log" id="viz-log">
+          <div class="viz__log-entry">&gt; СИСТЕМА ЗАПУЩЕНА</div>
+          <div class="viz__log-entry">&gt; КАЛИБРОВКА...</div>
+          <div class="viz__log-entry viz__log-entry--ok">&gt; ГОТОВ К РАБОТЕ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ TECH STACK ░░ -->
+  <section class="stack" id="stack">
+    <div class="section-header">
+      <span class="section-tag">// 03 — ТЕХНОЛОГИИ</span>
+      <h2 class="section-title">Стек<br/><em>робототехники</em></h2>
+    </div>
+    <div class="stack__grid">
+
+      <div class="stack__category">
+        <h4 class="stack__cat-title">Механика & CAD</h4>
+        <ul class="stack__list">
+          <li class="stack__item"><span class="stack__dot"></span>SolidWorks / Fusion 360</li>
+          <li class="stack__item"><span class="stack__dot"></span>ANSYS (FEM-анализ)</li>
+          <li class="stack__item"><span class="stack__dot"></span>3D-печать / CNC</li>
+          <li class="stack__item"><span class="stack__dot"></span>Servo & BLDC-моторы</li>
+        </ul>
+      </div>
+
+      <div class="stack__category">
+        <h4 class="stack__cat-title">Управление & Прошивка</h4>
+        <ul class="stack__list">
+          <li class="stack__item"><span class="stack__dot"></span>ROS 2 / ROS Noetic</li>
+          <li class="stack__item"><span class="stack__dot"></span>Arduino / STM32 / ESP32</li>
+          <li class="stack__item"><span class="stack__dot"></span>C++ / Python / Rust</li>
+          <li class="stack__item"><span class="stack__dot"></span>PID & MPC-регуляторы</li>
+        </ul>
+      </div>
+
+      <div class="stack__category">
+        <h4 class="stack__cat-title">ИИ & Восприятие</h4>
+        <ul class="stack__list">
+          <li class="stack__item"><span class="stack__dot"></span>PyTorch / TensorFlow</li>
+          <li class="stack__item"><span class="stack__dot"></span>OpenCV / YOLO</li>
+          <li class="stack__item"><span class="stack__dot"></span>SLAM / PointCloud</li>
+          <li class="stack__item"><span class="stack__dot"></span>LiDAR / RGB-D камеры</li>
+        </ul>
+      </div>
+
+      <div class="stack__category">
+        <h4 class="stack__cat-title">Симуляция & Визуализация</h4>
+        <ul class="stack__list">
+          <li class="stack__item"><span class="stack__dot"></span>Gazebo / Isaac Sim</li>
+          <li class="stack__item"><span class="stack__dot"></span>Blender / Three.js</li>
+          <li class="stack__item"><span class="stack__dot"></span>Unreal Engine</li>
+          <li class="stack__item"><span class="stack__dot"></span>MATLAB / Simulink</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="stack__bar-chart">
+      <div class="stack__chart-title">Популярность технологий (2025)</div>
+      <div class="stack__bars">
+        <div class="stack__bar-row"><span class="stack__bar-label">ROS 2</span><div class="stack__bar-track"><div class="stack__bar-fill" style="--w:88%">88%</div></div></div>
+        <div class="stack__bar-row"><span class="stack__bar-label">Python</span><div class="stack__bar-track"><div class="stack__bar-fill" style="--w:94%">94%</div></div></div>
+        <div class="stack__bar-row"><span class="stack__bar-label">PyTorch</span><div class="stack__bar-track"><div class="stack__bar-fill" style="--w:76%">76%</div></div></div>
+        <div class="stack__bar-row"><span class="stack__bar-label">OpenCV</span><div class="stack__bar-track"><div class="stack__bar-fill" style="--w:82%">82%</div></div></div>
+        <div class="stack__bar-row"><span class="stack__bar-label">Gazebo</span><div class="stack__bar-track"><div class="stack__bar-fill" style="--w:65%">65%</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer" id="contact">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">[ROBO<span>NEXUS</span>]</div>
+        <p class="footer__desc">Открытая платформа для исследователей, инженеров и энтузиастов робототехники.</p>
+      </div>
+      <div class="footer__col">
+        <h5 class="footer__col-title">Разделы</h5>
+        <ul class="footer__links">
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#viz">Симуляция</a></li>
+          <li><a href="#stack">Технологии</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5 class="footer__col-title">Сообщество</h5>
+        <ul class="footer__links">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Документация</a></li>
+          <li><a href="#">Discord</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5 class="footer__col-title">Контакты</h5>
+        <ul class="footer__links">
+          <li><a href="mailto:hello@robonexus.io">hello@robonexus.io</a></li>
+          <li><a href="#">Telegram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 RoboNexus — Все права защищены</span>
+      <span class="footer__status"><span class="footer__status-dot"></span>Системы в норме</span>
+    </div>
+  </footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>
