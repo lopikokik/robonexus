@@ -168,17 +168,16 @@
           <span class="viz__stat-label">СТАТУС</span>
           <span class="viz__stat-value viz__stat-value--ok" id="val-status">ACTIVE</span>
         </div>
-        <div class="viz__controls" style="display: flex; flex-direction: column; gap: 10px;">
-          <div style="display: flex; gap: 10px; width: 100%;">
-            <button class="viz__btn" id="btn-play" style="flex: 1;">▶ СТАРТ</button>
-            <button class="viz__btn viz__btn--ghost" id="btn-stop" style="flex: 1;">⏹ СТОП</button>
-          </div>
-          <button class="viz__btn" id="btn-tg-order" style="background: linear-gradient(135deg, #229ED9 0%, #0088cc 100%); color: #fff; border: none; font-weight: bold; box-shadow: 0 0 15px rgba(0,136,204,0.4); width: 100%;">
-            ✈ ОТПРАВИТЬ ЗАЯВКУ В ТГ
-          </button>
-        </div>
-      </div>
-
+       <div class="viz__controls" style="display: flex; flex-direction: column; gap: 10px;">
+  <div style="display: flex; gap: 10px; width: 100%;">
+    <button class="viz__btn" id="btn-play" style="flex: 1;">▶ СТАРТ</button>
+    <button class="viz__btn viz__btn--ghost" id="btn-stop" style="flex: 1;">⏹ СТОП</button>
+  </div>
+  
+  <a href="#" class="viz__btn js-random-tg" target="_blank" style="background: linear-gradient(135deg, #229ED9 0%, #0088cc 100%); color: #fff; border: none; font-weight: bold; box-shadow: 0 0 15px rgba(0,136,204,0.4); width: 100%; text-align: center; text-decoration: none; display: block; line-height: normal; padding: 12px 0; cursor: pointer;">
+    ✈ СМОТРЕТЬ БОЛЬШЕ В ТГ
+  </a>
+</div>
       <div class="viz__scene" id="viz-scene" style="position: relative; overflow: hidden;">
         <canvas id="robotCanvas" width="520" height="420"></canvas>
         <div class="viz__scan-beam" id="scanBeam"></div>
@@ -292,7 +291,7 @@
         <h3 class="footer__col-title" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: #fff;">Контакты</h3>
         <ul class="footer__links">
           <li><a href="mailto:hello@robonexus.io">hello@robonexus.io</a></li>
-          <li><a href="https://t.me" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+          <li><a href="#" id="tg-random-link" target="_blank">Telegram</a></li>
           <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
       </div>
