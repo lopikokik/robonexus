@@ -1,4 +1,8 @@
+/* ═══════════════════════════════════════════════
+   ROBONEXUS — ADVANCED KINEMATICS & FX SCRIPT
+═══════════════════════════════════════════════ */
 
+/* ── 1. NAV: scroll + mobile burger ── */
 const nav    = document.getElementById('nav');
 const burger = document.getElementById('burger');
 const links  = document.querySelector('.nav__links');
@@ -21,7 +25,7 @@ document.querySelectorAll('.nav__link').forEach(l => {
   });
 });
 
-
+/* ── 2. SMOOTH SCROLL ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
@@ -33,7 +37,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-
+/* ── 3. TYPED TEXT ── */
 const phrases = [
   'Строим автономные системы.',
   'Оживляем механику данными.',
@@ -57,7 +61,7 @@ function type() {
 }
 if (typedEl) type();
 
-
+/* ── 4. HERO PARTICLES ── */
 if (document.getElementById('particles')) {
   const container = document.getElementById('particles');
   for (let i = 0; i < 28; i++) {
@@ -88,7 +92,7 @@ if (document.getElementById('particles')) {
   document.head.appendChild(style);
 }
 
-
+/* ── 5. REVEAL ON SCROLL ── */
 document.querySelectorAll('.card').forEach((el, i) => {
   el.classList.add('reveal', `reveal-delay-${(i % 4) + 1}`);
 });
@@ -99,7 +103,7 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-
+/* ── 6. BAR CHART ANIMATION ── */
 const barObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
@@ -112,6 +116,7 @@ const barChart = document.querySelector('.stack__bar-chart');
 if (barChart) barObserver.observe(barChart);
 
 
+/* ── 7. ADVANCED ROBOT SIMULATION (4-SEGMENTS, PATH, GLOW, JOINT PARTICLES) ── */
 const canvas = document.getElementById('robotCanvas');
 const ctx    = canvas ? canvas.getContext('2d') : null;
 const W = 520, H = 420;
@@ -121,6 +126,7 @@ if (canvas) {
   canvas.height = H;
 }
 
+// Конфигурация кибернетического робота (4 звена)
 const arm = {
   base: { x: W / 2, y: H - 55 },
   seg: [
@@ -131,6 +137,7 @@ const arm = {
   ]
 };
 
+// Хранилища для FX-эффектов
 let trajectoryPath = []; // Следы кончика робота
 let jointParticles = []; // Искры из суставов
 
@@ -164,6 +171,7 @@ function addLog(msg, ok = false) {
   vizLog.scrollTop = vizLog.scrollHeight;
 }
 
+// Сетка окружения
 function drawGrid() {
   ctx.strokeStyle = 'rgba(0, 212, 255, 0.025)';
   ctx.lineWidth = 1;
@@ -172,6 +180,7 @@ function drawGrid() {
   for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
 }
 
+// Отрисовка траектории движения (Векторный след)
 function drawTrajectory() {
   if (trajectoryPath.length < 2) return;
   ctx.save();
@@ -192,6 +201,7 @@ function drawTrajectory() {
   ctx.restore();
 }
 
+// Логика и отрисовка суставных искр (частиц)
 function emitJointParticle(x, y) {
   if (jointParticles.length > 120) return; // Ограничение пула ради высокой производительности
   jointParticles.push({
@@ -213,7 +223,7 @@ function updateAndDrawParticles() {
     const p = jointParticles[i];
     p.x += p.vx;
     p.y += p.vy;
-    p.alpha -= 0.025;
+    p.alpha -= 0.025; // Скорость исчезновения
     
     if (p.alpha <= 0) {
       jointParticles.splice(i, 1);
@@ -228,6 +238,7 @@ function updateAndDrawParticles() {
   ctx.restore();
 }
 
+// База робота
 function drawBase(x, y) {
   ctx.shadowBlur = 0;
   ctx.fillStyle = '#111e2a';
@@ -243,6 +254,7 @@ function drawBase(x, y) {
   ctx.fill(); ctx.stroke();
 }
 
+// Рендеринг сегмента механической руки
 function drawSegment(x1, y1, x2, y2, color, w = 14) {
   const angle = Math.atan2(y2 - y1, x2 - x1);
   const hw = w / 2;
@@ -250,6 +262,7 @@ function drawSegment(x1, y1, x2, y2, color, w = 14) {
   const sin = Math.sin(angle + Math.PI / 2);
 
   ctx.save();
+  // Эффект неонового свечения ребер
   ctx.shadowBlur = 10;
   ctx.shadowColor = color;
 
@@ -265,6 +278,7 @@ function drawSegment(x1, y1, x2, y2, color, w = 14) {
   ctx.lineWidth = 1.8;
   ctx.stroke();
   
+  // Внутренний каркасный элемент для хай-тек детализации
   ctx.beginPath();
   ctx.moveTo(x1, y1);
   ctx.lineTo(x2, y2);
@@ -275,6 +289,7 @@ function drawSegment(x1, y1, x2, y2, color, w = 14) {
   ctx.restore();
 }
 
+// Клешня захвата
 function drawEndEffector(x, y, angle, openAmount) {
   ctx.save();
   ctx.translate(x, y);
@@ -287,6 +302,7 @@ function drawEndEffector(x, y, angle, openAmount) {
   ctx.lineWidth = 2;
   ctx.beginPath(); ctx.roundRect(-2, -6, 12, 12, 2); ctx.fill(); ctx.stroke();
 
+  // Щупальца-клешни
   [[1], [-1]].forEach(([s]) => {
     ctx.beginPath();
     ctx.moveTo(10, s * 4);
@@ -297,6 +313,7 @@ function drawEndEffector(x, y, angle, openAmount) {
     ctx.stroke();
   });
 
+  // Лазерный прицел
   ctx.shadowBlur = 15;
   ctx.shadowColor = '#00ff9d';
   ctx.beginPath();
@@ -306,14 +323,17 @@ function drawEndEffector(x, y, angle, openAmount) {
   ctx.restore();
 }
 
+// Физический движок кинематики
 function updatePhysics() {
   const time = Date.now() / 1400;
   
+  // Расчет гармонических синусоид траектории для всех 4х суставов
   arm.seg[0].targetAngle = -Math.PI/2 + Math.sin(time) * 0.45;
   arm.seg[1].targetAngle = Math.PI/4 + Math.cos(time * 0.7) * 0.35;
   arm.seg[2].targetAngle = -Math.PI/3 + Math.sin(time * 1.1) * 0.25;
   arm.seg[3].targetAngle = Math.cos(time * 1.8) * 0.3;
 
+  // Рассчитываем инерцию движения каждого мотора (Демпфирование)
   arm.seg.forEach(sg => {
     let diff = sg.targetAngle - sg.angle;
     let desiredSpeed = diff * 0.08;
@@ -330,9 +350,11 @@ function updatePhysics() {
   });
 }
 
+// Основной поток отрисовки сцены (Render Loop)
 function render() {
   if (!ctx) return;
   
+  // Сброс и заливка темного индастриал-фона
   ctx.fillStyle = BG;
   ctx.fillRect(0, 0, W, H);
   
@@ -340,6 +362,7 @@ function render() {
   if (running) updatePhysics();
   drawTrajectory();
 
+  // Прямая кинематика: поочередное вычисление координат суставов
   const joints = [{ x: arm.base.x, y: arm.base.y }];
   let totalAngle = 0;
   
@@ -352,20 +375,25 @@ function render() {
     });
   });
 
+  // Генерация искр из сочленений при движении робота
   if (running && Math.random() > 0.3) {
+    // Выпускаем частицы из 2, 3 и 4 сустава
     emitJointParticle(joints[1].x, joints[1].y);
     emitJointParticle(joints[2].x, joints[2].y);
     emitJointParticle(joints[3].x, joints[3].y);
   }
 
+  // Обновление и рендер искр
   updateAndDrawParticles();
 
+  // Логирование траектории кончика захвата
   const tipPoint = joints[joints.length - 1];
   if (running) {
     trajectoryPath.push({ x: tipPoint.x, y: tipPoint.y });
     if (trajectoryPath.length > 45) trajectoryPath.shift(); // Длина хвоста траектории
   }
 
+  // Визуализация скелета (сегментов)
   for (let i = 0; i < joints.length - 1; i++) {
     const p1 = joints[i];
     const p2 = joints[i + 1];
@@ -374,6 +402,7 @@ function render() {
     drawSegment(p1.x, p1.y, p2.x, p2.y, color, width);
   }
 
+  // Отрендерить ядра шарниров со свечением
   joints.forEach((p, i) => {
     if (i === 0) drawBase(p.x, p.y);
     else if (i < joints.length - 1) {
@@ -388,13 +417,16 @@ function render() {
     }
   });
 
+  // Эффектор (Клешня)
   const finalJoint = joints[joints.length - 1];
   const preFinalJoint = joints[joints.length - 2];
   const effectorAngle = Math.atan2(finalJoint.y - preFinalJoint.y, finalJoint.x - preFinalJoint.x);
   
+  // Захват сжимается динамически от скорости
   const openWidth = 3.5 + Math.abs(Math.sin(Date.now() / 500)) * 6.5;
   drawEndEffector(finalJoint.x, finalJoint.y, effectorAngle, openWidth);
 
+  // Вывод данных телеметрии на левую HUD-панель
   const hudAngle = document.getElementById('val-angle');
   const hudSpeed = document.getElementById('val-speed');
   const hudLoad  = document.getElementById('val-load');
@@ -429,12 +461,14 @@ function stopRobot() {
     statusEl.textContent = 'IDLE';
     statusEl.className = 'viz__stat-value';
   }
-  render(); 
+  render(); // Один кадр для фиксации статичного состояния
 }
 
+/* Инициализация обработчиков кнопок */
 document.getElementById('btn-play')?.addEventListener('click', startRobot);
 document.getElementById('btn-stop')?.addEventListener('click', stopRobot);
 
+// Скролл-активация робота
 const vizSection = document.getElementById('viz');
 if (vizSection) {
   const vizObserver = new IntersectionObserver(entries => {
@@ -443,6 +477,7 @@ if (vizSection) {
   vizObserver.observe(vizSection);
 }
 
+// Первичный старт
 if (ctx) {
   startRobot();
   setInterval(() => {
@@ -452,6 +487,7 @@ if (ctx) {
   }, 2200);
 }
 
+/* ── 8. ИНТЕРАКТИВНЫЙ КРОСС-БЛОЧНЫЙ ФИЛЬТР СТЕКА ── */
 document.querySelectorAll('.stack__category').forEach(cat => {
   cat.addEventListener('click', () => {
     const filterValue = cat.getAttribute('data-filter');
@@ -474,20 +510,22 @@ document.querySelectorAll('.stack__category').forEach(cat => {
 
 
 
-
+/* ── 9. РАНДОМАЙЗЕР TELEGRAM КАНАЛОВ ── */
 const tgLinks = [
-  'https://t.me/robotrends',     
-  'https://t.me/proROBOTS',       
-  'https://t.me/neuro_channel',   
-  'https://t.me/RoboticsChannel', 
-  'https://t.me/darpa_news'       
+  'https://t.me/robotrends',     // Новости робототехники и ИИ
+  'https://t.me/proROBOTS',       // Канал известного YouTube-проекта PRO Роботов
+  'https://t.me/neuro_channel',   // Нейросети, роботы и технологии будущего
+  'https://t.me/RoboticsChannel', // Интересные разработки, концепты и гифки из мира роботов
+  'https://t.me/darpa_news'       // Публикации передовых военных и гражданских тех-разработок
 ];
 
-// Ищем абсолютно все элементы с классом js-random-tg
-document.querySelectorAll('.js-random-tg').forEach(button => {
-  button.addEventListener('click', (e) => {
-    // На всякий случай выбираем канал заново при каждом клике
+const tgButton = document.getElementById('tg-random-link');
+
+if (tgButton) {
+  tgButton.addEventListener('click', (e) => {
+    // Выбираем случайный индекс из массива
     const randomIndex = Math.floor(Math.random() * tgLinks.length);
-    button.href = tgLinks[randomIndex];
+    // Устанавливаем случайный адрес в href прямо в момент клика
+    tgButton.href = tgLinks[randomIndex];
   });
-});
+}
